@@ -8,7 +8,7 @@
   require '../templates/asside.php';
   require '../functions.php';
 
-  $uangmasuk = query("SELECT * FROM uangmasuk");
+  $uangmasuk = query("SELECT * FROM uangmasuk ORDER BY tgl DESC");
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -22,7 +22,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Uang Masuk</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Uang Masuk</a></li>
               <li class="breadcrumb-item active">Home</li>
             </ol>
           </div>
@@ -71,8 +71,8 @@
                   <td><?= $um['tgl'] ?></td>
                   <td><?= $um['keterangan'] ?></td>
                   <td>
-                    <a href="ubah.php" class="badge badge-success">Ubah</a>
-                    <a href="hapus.php" class="badge badge-danger">Hapus</a>
+                    <a href="ubahuang.php?id=<?= $um['id'] ?>" class="badge badge-success">Ubah</a>
+                    <a href="hapusuang.php?id=<?= $um['id'] ?>" class="badge badge-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');">Hapus</a>
                   </td>
                 </tr>
                 <?php endforeach; ?>
